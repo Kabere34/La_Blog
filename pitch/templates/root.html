@@ -58,9 +58,7 @@ rel="stylesheet"
     <div class="collapse navbar-collapse" id="navbarButtonsExample">
       <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-        </li>
+       
 
       </ul>
       <!-- Left links -->
@@ -75,7 +73,7 @@ rel="stylesheet"
           aria-expanded="false"
         >
           <img
-            src="{{ url_for('static', filename='user_profiles/' + current_user.image_file) }}"
+            src="{{ url_for('static', filename='images/' + current_user.image_file) }}"
             class="rounded-circle"
             height="30px"
             width="35px"
