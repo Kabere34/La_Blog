@@ -1,18 +1,18 @@
-# Pitch
+# La_Blog
 
 ## Description
 
-A web application that allows users to use that one minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
+a personal blogging website where you can create and share your opinions and other users can read and comment on them.
 
-The pitches are organized by category. The app is built on Flask framework.
+The blog posts are organized by category. The app is built on Flask framework.
 
 ## Live preview
 
-You can view the site at: <https://ivy-pitcher.herokuapp.com/>
+You can view the site at: <https://ivy-blogs.herokuapp.com/>
 
 ## Setup Instructions and Installation
 
-- Clone this repository to a location in your file system. `git clone https://github.com/Kabere34/Pitches-App.git`
+- Clone this repository to a location in your file system. `git clone https://github.com/Kabere34/La_Blog.git`
 - Open terminal command line then navigate to the root folder of the application. `cd Pitches-App
 - Run `./run.py`
 
