@@ -143,45 +143,45 @@ rel="stylesheet"
   <div class="container">
     {% for post in posts %}
 
-
+    <a  href="{{url_for('post', post_id=post.id)}}">
 <div class="card mb-3" style="max-width: 540px;">
   <div class="row g-0">
     <div class="col-md-4">
       <img
-        src="https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.webp"
-        alt="Trendy Pants and Shoes"
+        src="{{ url_for('static', filename='images/' + post.author.image_file) }}"
+        alt="User"
         class="img-fluid rounded-start"
       />
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">{{ post.title }}</h5>
         <p class="card-text">
-          This is a wider card with supporting text below as a natural lead-in to
-          additional content. This content is a little bit longer.
+          {{ post.content }}
         </p>
         <p class="card-text">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <small class="text-muted">{{ post.author.username }}</small>
+          <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
         </p>
       </div>
     </div>
   </div>
-</div>
+</div></a>
 
 
 
 
-<article class="media content-section">
-  <img class="rounded-circle article-img" src="{{ url_for('static', filename ='images/' + post.author.image_file) }}">
+<!-- <article class="media content-section">
+  <img class="rounded-circle article-img" src="">
   <div class="media-body">
     <div class="article-metadata">
-      <a class="mr-2" href="#">{{ post.author.username }}</a>
-      <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+      <a class="mr-2" href="#"></a>
+      <small class="text-muted"></small>
     </div>
-    <h2><a class="article-title" href="{{url_for('post', post_id=post.id)}}">{{ post.title }}</a></h2>
-    <p class="article-content"> <i class="fas fa-quote-left"></i> <br /> {{ post.content }}</p>
+    <h2></h2>
+    <p class="article-content"> <i class="fas fa-quote-left"></i> <br /> </p>
   </div>
-</article>
+</article> -->
 {% endfor %}
   </div>
 
