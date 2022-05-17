@@ -34,7 +34,7 @@ class LoginForm(FlaskForm):
 class UpdateAccountForm(FlaskForm):
   username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
   email = StringField('Email', validators=[DataRequired(), Email()])
-  picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg','jpeg','png'])])
+  picture = FileField('Update Profile Picture', validators=[FileAllowed(['jpg', 'jpeg', 'png'])])
   submit= SubmitField('Update')
 
 
@@ -53,9 +53,9 @@ class UpdateAccountForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    category = SelectField('Pitch Category', choices=[('Business','Business'),('Finance','Finance'),('Relationships','Relationships'),('Well-Being','Well-Being')],validators=[DataRequired()])
+    category = SelectField('Blog Category', choices=[('Business','Business'),('Finance','Finance'),('Relationships','Relationships'),('Well-Being','Well-Being')],validators=[DataRequired()])
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])
 
 
-    submit = SubmitField('Post')
+    submit = SubmitField('Blog')

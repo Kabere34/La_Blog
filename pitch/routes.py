@@ -12,6 +12,7 @@ from pitch.request import get_quotes
 @app.route("/")
 def root():
   posts = Post.query.all()
+  posts.reverse()
   quotes = get_quotes()
   return render_template('root.html', quotes=quotes,posts=posts)
 
@@ -108,7 +109,7 @@ def new_post():
     db.session.commit()
     flash('Your post has been created!', 'success')
     return redirect(url_for('root'))
-  return render_template('create_post.html',title='New Post',form=form, legend='New post')
+  return render_template('create_post.html',title='New Blog',form=form, legend='New Blog')
 
 
 @app.route("/post/<int:post_id>")

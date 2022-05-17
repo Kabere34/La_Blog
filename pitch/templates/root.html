@@ -149,7 +149,7 @@ rel="stylesheet"
     <div class="col-md-4">
       <img
         src="{{ url_for('static', filename='images/' + post.author.image_file) }}"
-        alt="User"
+        alt="{{ post.author.username }}"
         class="img-fluid rounded-start"
       />
     </div>
