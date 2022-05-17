@@ -88,7 +88,7 @@ rel="stylesheet"
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" href="{{ url_for('new_blog') }}">New Blog</a>
+            <a class="dropdown-item" href="{{ url_for('new_post') }}">New Blog</a>
           </li>
           <li>
             <a class="dropdown-item" href="{{ url_for('account') }}">My Profile</a>
@@ -140,6 +140,28 @@ rel="stylesheet"
     </div>
     <!-- Background image -->
   </header>
+
+
+  <div class="container">
+    {% for post in posts %}
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ url_for('static', filename ='images/' + post.author.image_file) }}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ post.author.username }}</a>
+      <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+    </div>
+    <h2><a class="article-title" href="{{url_for('post', post_id=post.id)}}">{{ post.title }}</a></h2>
+    <p class="article-content"> <i class="fas fa-quote-left"></i> <br /> {{ post.content }}</p>
+  </div>
+</article>
+{% endfor %}
+  </div>
+
+
+
+
+
 
 
 

@@ -11,16 +11,16 @@ from pitch.request import get_quotes
 
 @app.route("/")
 def root():
-
+  posts = Post.query.all()
   quotes = get_quotes()
-  return render_template('root.html', quotes=quotes)
+  return render_template('root.html', quotes=quotes,posts=posts)
 
 
 
 @app.route("/home")
 def home():
-  posts = Post.query.all()
-  return render_template('index.html',posts=posts)
+
+  return render_template('index.html')
 
 @app.route("/pickup")
 def about():
@@ -52,7 +52,7 @@ def login():
     if user and bcrypt.check_password_hash(user.password, form.password.data):
       login_user(user, remember=form.remember.data)
       next_page=request.args.get('next')
-      return redirect(next_page) if next_page else redirect (url_for ('home'))
+      return redirect(next_page) if next_page else redirect (url_for ('root'))
     else:
       flash('Login unseccessful. Please check your email and password','danger')
 
@@ -61,7 +61,7 @@ def login():
 @app.route("/logout")
 def logout():
   logout_user()
-  return redirect(url_for('home'))
+  return redirect(url_for('root'))
 
 def save_picture(form_picture):
     random_hex = secrets.token_hex(8)
@@ -110,7 +110,7 @@ def new_post():
     db.session.add(post)
     db.session.commit()
     flash('Your post has been created!', 'success')
-    return redirect(url_for('home'))
+    return redirect(url_for('root'))
   return render_template('create_post.html',title='New Post',form=form, legend='New post')
 
 
@@ -150,4 +150,4 @@ def delete_post(post_id):
     db.session.delete(post)
     db.session.commit()
     flash('Your post has been deleted!', 'success')
-    return redirect(url_for('home'))
+    return redirect(url_for('root'))
