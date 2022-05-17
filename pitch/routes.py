@@ -6,13 +6,14 @@ from pitch import app, db, bcrypt
 from pitch.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostForm
 from pitch.models import User, Post
 from flask_login import login_user, current_user, logout_user,login_required
-
+from pitch.request import get_quotes
 
 
 @app.route("/")
 def root():
 
-  return render_template('root.html')
+  quotes = get_quotes()
+  return render_template('root.html', quotes=quotes)
 
 
 
