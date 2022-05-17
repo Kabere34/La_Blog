@@ -10,6 +10,12 @@ from flask_login import login_user, current_user, logout_user,login_required
 
 
 @app.route("/")
+def root():
+
+  return render_template('root.html')
+
+
+
 @app.route("/home")
 def home():
   posts = Post.query.all()
